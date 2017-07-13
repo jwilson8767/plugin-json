@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/systemjs/plugin-yaml/issues"
+    "url": "https://github.com/jwilson8767/plugin-yaml/issues"
   },
   "homepage": "https://github.com/jwilson8767/plugin-yaml",
   "dependencies": {
