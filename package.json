@@ -1,19 +1,22 @@
 {
   "name": "systemjs-plugin-json",
-  "version": "0.3.0",
-  "main": "json",
+  "version": "0.1.0",
+  "main": "yaml",
   "scripts": {
     "test": "serve ."
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/systemjs/plugin-json.git"
+    "url": "https://github.com/jwilson8767/plugin-yaml.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/systemjs/plugin-json/issues"
+    "url": "https://github.com/systemjs/plugin-yaml/issues"
   },
-  "homepage": "https://github.com/systemjs/plugin-json",
+  "homepage": "https://github.com/jwilson8767/plugin-yaml",
+  "dependencies": {
+    "yamljs": "^0.3.0"
+  },
   "devDependencies": {
     "serve": "^3.2.7",
     "systemjs": "^0.20.5"

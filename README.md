@@ -1,26 +1,26 @@
-plugin-json
+plugin-yaml
 ===========
 
 [![CDNJS](https://img.shields.io/cdnjs/v/systemjs-plugin-json.svg)](https://cdnjs.com/libraries/systemjs-plugin-json)
 
-JSON loader plugin
+YAML loader plugin
 
 
 
 Configuration
 -------------
 
-To load all URLs with `.json` filename extension via this plugin:
+To load all URLs with `.yaml` or `.yml` filename extension via this plugin:
 
 ```javascript
 SystemJS.config({
-  map: { 'plugin-json': 'plugin-json/json.js' },
-  meta: { '*.json': { loader: 'plugin-json' } }
+  map: { 'plugin-yaml': 'plugin-yaml/yaml.js' },
+  meta: { 
+    '*.yaml': { loader: 'plugin-yaml' },
+    '*.yml': { loader: 'plugin-yaml' }
+  }
 });
 ```
-
-
-
 
 Testing this project
 --------------------
