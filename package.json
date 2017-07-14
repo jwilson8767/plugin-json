@@ -16,8 +16,10 @@
   "homepage": "https://github.com/jwilson8767/plugin-yaml",
   "dependencies": {},
   "jspm": {
+    "name": "yaml",
+    "main": "yaml.js",
     "dependencies": {
-      "yamljs": "^0.3.0"
+      "yamljs": "npm:yamljs@^0.3.0"
     }
   },
   "devDependencies": {
