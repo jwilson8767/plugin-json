@@ -14,8 +14,11 @@
     "url": "https://github.com/jwilson8767/plugin-yaml/issues"
   },
   "homepage": "https://github.com/jwilson8767/plugin-yaml",
-  "dependencies": {
-    "yamljs": "^0.3.0"
+  "dependencies": {},
+  "jspm": {
+    "dependencies": {
+      "yamljs": "^0.3.0"
+    }
   },
   "devDependencies": {
     "serve": "^3.2.7",
