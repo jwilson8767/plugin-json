@@ -1,7 +1,7 @@
 {
   "name": "systemjs-plugin-yaml",
   "version": "0.1.0",
-  "main": "yaml",
+  "main": "yaml.js",
   "scripts": {
     "test": "serve ."
   },
@@ -14,13 +14,8 @@
     "url": "https://github.com/jwilson8767/plugin-yaml/issues"
   },
   "homepage": "https://github.com/jwilson8767/plugin-yaml",
-  "dependencies": {},
-  "jspm": {
-    "name": "yaml",
-    "main": "yaml.js",
-    "dependencies": {
-      "yamljs": "npm:yamljs@^0.3.0"
-    }
+  "dependencies": {
+    "yamljs":"^0.3.0"
   },
   "devDependencies": {
     "serve": "^3.2.7",
