@@ -15,10 +15,10 @@ To load all URLs with `.yaml` or `.yml` filename extension via this plugin:
 
 ```javascript
 SystemJS.config({
-  map: { 'plugin-yaml': 'github:jwilson8767/plugin-yaml@0.1.0/yaml.js' },
+  map: { 'yaml-loader': 'github:jwilson8767/plugin-yaml@0.1.0/yaml.js' },
   meta: { 
-    '*.yaml': { loader: 'plugin-yaml' },
-    '*.yml': { loader: 'plugin-yaml' }
+    '*.yaml': { loader: 'yaml-loader', build: false },
+    '*.yml': { loader: 'yaml-loader', build: false }
   }
 });
 ```

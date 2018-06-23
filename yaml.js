@@ -1,3 +1,4 @@
+var yamljs = require('yamljs');
 /*
  YAML plugin
  */
@@ -10,44 +11,41 @@ function isValidIdentifier(exportName) {
 
 module.exports = {
   translate: function(load) {
-    return System['import']('yamljs').then(function(yaml){
-      var yaml = yaml.parse(load.source);
-      if (this.builder && this.transpiler && !Array.isArray(yaml)) {
-        load.metadata.format = 'esm';
+    var yaml = yamljs.parse(load.source);
+    if (this.builder && this.transpiler && !Array.isArray(yaml)) {
+      load.metadata.format = 'esm';
 
-        var namedExports = Object.keys(yaml);
-        var validIdentifiers = namedExports.filter(isValidIdentifier);
+      var namedExports = Object.keys(yaml);
+      var validIdentifiers = namedExports.filter(isValidIdentifier);
 
-        var output = ['exp' + 'ort var __useDefault = true;\n'];
+      var output = ['exp' + 'ort var __useDefault = true;\n'];
 
-        validIdentifiers.forEach(function (exportName) {
-          output.push('exp' + 'ort var ' + exportName + ' = ' + JSON.stringify(yaml[exportName]) + ';\n');
-        });
+      validIdentifiers.forEach(function (exportName) {
+        output.push('exp' + 'ort var ' + exportName + ' = ' + JSON.stringify(yaml[exportName]) + ';\n');
+      });
 
-        output.push('exp' + 'ort default {\n');
-        namedExports.forEach(function (exportName) {
-          if (validIdentifiers.indexOf(exportName) !== -1) {
-            output.push(exportName + ': ' + exportName + ',\n');
-          }
-          else {
-            output.push(JSON.stringify(exportName) + ': ' + JSON.stringify(yaml[exportName]) + ',\n');
-          }
-        });
+      output.push('exp' + 'ort default {\n');
+      namedExports.forEach(function (exportName) {
+        if (validIdentifiers.indexOf(exportName) !== -1) {
+          output.push(exportName + ': ' + exportName + ',\n');
+        }
+        else {
+          output.push(JSON.stringify(exportName) + ': ' + JSON.stringify(yaml[exportName]) + ',\n');
+        }
+      });
 
-        output.push('};');
+      output.push('};');
 
-        return output.join('');
-      }
-      if (this.builder) {
-        load.metadata.format = 'cjs';
-        return 'module.exports = ' + JSON.stringify(yaml);
-      }
-    })
+      return output.join('');
+    }
+    if (this.builder) {
+      load.metadata.format = 'cjs';
+      return 'module.exports = ' + JSON.stringify(yaml);
+    }
   },
   instantiate: function(load) {
-    return System.import('yamljs').then(function(yaml){
     if (!this.builder) {
-      return yaml.parse(load.source);
-    }});
+      return yamljs.parse(load.source);
+    }
   }
 };
